@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 // Slideshow Data
 const slides = [
   {
-    image: "/public/images/slide1.jpg",
+    image: "/images/slide1.jpg",
     title: "Welcome to Azela Trading",
     text: "Your one-stop marketplace for everything.",
     ctaText: "Explore Now",
