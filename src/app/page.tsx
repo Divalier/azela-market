@@ -1,7 +1,7 @@
-export default function Home() {
-  return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+"use client"; // Ensure this is a Client Component
+
+import Home from "../../components/Home"; // Adjusted the path
+
+export default function Page() {
+  return <Home />;
 }
