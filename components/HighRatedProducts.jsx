@@ -24,23 +24,24 @@ const HighRatedProducts = () => {
   const [showp, setShowp] = useState(5); // Default to 5 visible cards
 
   useEffect(() => {
-    if (typeof window !== "undefined") { // Ensure window exists
-      const updateShowp = () => {
-        if (window.innerWidth < 768) {
-          setShowp(1);
-        } else if (window.innerWidth < 1200) {
-          setShowp(5);
-        } else {
-          setShowp(7);
-        }
-      };
+    const updateShowp = () => {
+      if (window.innerWidth < 768) {
+        setShowp(1);
+      } else if (window.innerWidth < 1200) {
+        setShowp(5);
+      } else {
+        setShowp(7);
+      }
+    };
 
-      updateShowp(); // Set initial value
+    // Set initial value
+    updateShowp();
 
-      window.addEventListener("resize", updateShowp); // Listen for resize
+    // Listen for window resize
+    window.addEventListener("resize", updateShowp);
 
-      return () => window.removeEventListener("resize", updateShowp); // Cleanup
-    }
+    // Cleanup listener on unmount
+    return () => window.removeEventListener("resize", updateShowp);
   }, []);
 
   useEffect(() => {
