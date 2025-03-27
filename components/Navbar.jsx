@@ -33,15 +33,17 @@ const Navbar = () => {
 
   // Detect Scroll Direction (Show on Scroll Up, Hide on Scroll Down)
   useEffect(() => {
+    if (typeof window === "undefined") return; // Ensure window is available
+  
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        setShowNavbar(false); // Hide navbar when scrolling down
+        setShowNavbar(false);
       } else {
-        setShowNavbar(true); // Show navbar when scrolling up
+        setShowNavbar(true);
       }
-      setLastScrollY(window.scrollY); // Update last scroll position
+      setLastScrollY(window.scrollY);
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -299,7 +301,7 @@ const Navbar = () => {
       </div>
       {/* Section 3: Categories Navigation (Now Fixed & Always Visible) */}
       <div
-        className={`${showNavbar ? ' duration-700' : 'hidden duration-700'} hidden w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 lg:block md:block `}
+        className={`${showNavbar ? ' duration-700' : 'md:hidden'} hidden w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 md:block `}
         style={{ top: showMessage ? "140px" : "100px" }} 
       >
         <Categories />
