@@ -26,27 +26,25 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const [dropdown, setDropdown] = useState(null);
   const [showMessage, setShowMessage] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(0); // Store window width
 
   // navbar movement
   const [showNavbar, setShowNavbar] = useState(true); // Navbar visibility state
   const [lastScrollY, setLastScrollY] = useState(0); // Stores last scroll position
+  const [isClient, setIsClient] = useState(false); // Track if client-side rendering
 
   // Detect Scroll Direction (Show on Scroll Up, Hide on Scroll Down)
   useEffect(() => {
-    if (typeof window === "undefined") return; // Ensure window is available
-  
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setShowNavbar(false);
-      } else {
-        setShowNavbar(true);
-      }
-      setLastScrollY(window.scrollY);
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
     };
-  
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+
+    updateWindowWidth(); // Set initial width
+    window.addEventListener("resize", updateWindowWidth);
+
+    return () => window.removeEventListener("resize", updateWindowWidth);
+  }, []);
+  // Depend on lastScrollY
   // end of nav movement
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -93,11 +91,7 @@ const Navbar = () => {
       <div
         className="fixed left-0 w-full bg-gray-800  text-white shadow-md z-40 transition-all duration-300"
         style={{
-          top: showMessage
-            ? window.innerWidth >= 768
-              ? "32px"
-              : "0px"
-            : "0px",
+          top: showMessage ? (windowWidth >= 768 ? "32px" : "0px") : "0px",
         }}
       >
         <div className="container mx-auto flex justify-between items-center p-4">
@@ -301,7 +295,7 @@ const Navbar = () => {
       </div>
       {/* Section 3: Categories Navigation (Now Fixed & Always Visible) */}
       <div
-        className={`${showNavbar ? ' duration-700' : 'md:hidden'} hidden w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 md:block `}
+        className={`${showNavbar ? ' duration-700' : 'lg:hidden md:hidden'} hidden w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 md:block `}
         style={{ top: showMessage ? "140px" : "100px" }} 
       >
         <Categories />

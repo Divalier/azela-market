@@ -16,15 +16,17 @@ const SectionThree = () => {
 
   // Detect Scroll Direction (Show on Scroll Up, Hide on Scroll Down)
   useEffect(() => {
+    if (typeof window === "undefined") return; // Ensure window is available
+  
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        setShowNavbar(false); // Hide navbar when scrolling down
+        setShowNavbar(false);
       } else {
-        setShowNavbar(true); // Show navbar when scrolling up
+        setShowNavbar(true);
       }
-      setLastScrollY(window.scrollY); // Update last scroll position
+      setLastScrollY(window.scrollY);
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
