@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 // Slideshow Data
 const slides = [
   {
-    image: "/slide1.jpg",
+    image: "/images/slide1_1.png",
     title: "Welcome to Azela Trading",
     text: "Your one-stop marketplace for everything.",
     ctaText: "Explore Now",
@@ -29,37 +29,6 @@ const slides = [
   },
 ];
 
-// Floating Shapes with Images
-const floatingShapes = [
-  {
-    src: "/products/headphones.jpg",
-    size: "w-20 h-20",
-    top: "top-10",
-    left: "left-5",
-    zIndex: "z-10",
-  },
-  {
-    src: "/products/laptop.jpg",
-    size: "w-32 h-32",
-    top: "top-1/3",
-    right: "right-10",
-    zIndex: "z-20",
-  },
-  {
-    src: "/products/Smartphone.jpg",
-    size: "w-16 h-16",
-    bottom: "bottom-10",
-    left: "left-1/4",
-    zIndex: "z-5",
-  },
-  {
-    src: "/products/speaker.jpg",
-    size: "w-14 h-14",
-    top: "top-1/2",
-    right: "right-20",
-    zIndex: "z-30",
-  },
-];
 
 // Mission & Vision Data
 const infoSections = [
@@ -88,7 +57,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
+    }, 18000);
     return () => clearInterval(interval);
   }, []);
 
@@ -96,7 +65,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentInfo((prev) => (prev + 1) % infoSections.length);
-    }, 7000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -130,7 +99,7 @@ const HeroSection = () => {
                     alt="Slideshow"
                     layout="fill"
                     objectFit="cover"
-                    className="transition-all duration-700 ease-in-out"
+                    className="transition-all object-fill duration-700 ease-in-out"
                   />
                 </motion.div>
               )

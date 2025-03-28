@@ -51,7 +51,7 @@ export default function Home() {
       </motion.section>
 
       {/* Our Services - Expanding 2x2 Grid Layout */}
-      <motion.section 
+      {/* <motion.section 
         initial={{ opacity: 0, scale: 0.95 }} 
         whileInView={{ opacity: 1, scale: 1 }} 
         transition={{ duration: 1 }}
@@ -59,7 +59,7 @@ export default function Home() {
         className="bg-gray-200"
       >
         <Services />
-      </motion.section>
+      </motion.section> */}
 
       {/* Login / Join Us - User Interaction Section */}
       <motion.section 

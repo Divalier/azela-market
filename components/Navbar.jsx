@@ -295,7 +295,7 @@ const Navbar = () => {
       </div>
       {/* Section 3: Categories Navigation (Now Fixed & Always Visible) */}
       <div
-        className={`${showNavbar ? ' duration-700' : 'lg:hidden md:hidden'} hidden w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 md:block `}
+        className={`${showNavbar ? ' duration-700 md:block' : 'lg:hidden md:hidden'} hidden w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 `}
         style={{ top: showMessage ? "140px" : "100px" }} 
       >
         <Categories />
