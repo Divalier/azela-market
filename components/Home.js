@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import HeroSection from './HeroSection';
 import WhyChooseUs from './WhyChooseUs';
 import HighRatedProducts from './HighRatedProducts';
-import Services from './Services';
+// import Services from './Services';
 import AuthSection from './AuthSection';
 import ServicesSection from './ServicesSection';
 import KitchenSection from './KitchenSection';

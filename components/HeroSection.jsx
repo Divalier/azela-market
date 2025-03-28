@@ -162,16 +162,16 @@ const HeroSection = () => {
         </motion.a>
 
         {/* Navigation Buttons */}
-        <div className="absolute flex justify-between w-full px-2 lg:p-8 opacity-80 lg:opacity-100">
+        <div className="absolute flex justify-between w-full  px-2 lg:p-8 opacity-80 lg:opacity-100">
           <button
             onClick={prevSlide}
-            className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75"
+            className="text-white bg-black bg-opacity-50 p-2 hover:bg-opacity-50  border-2 border-amber-600 rounded-full "
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75"
+            className="text-white bg-black bg-opacity-50 p-2 hover:bg-opacity-50  border-2 border-amber-600 rounded-full "
           >
             <ChevronRight className="w-6 h-6" />
           </button>
