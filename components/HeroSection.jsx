@@ -7,21 +7,21 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 // Slideshow Data
 const slides = [
   {
-    image: "/images/slide1_1.png",
+    image: "/images/slide1.png",
     title: "Welcome to Azela Trading",
     text: "Your one-stop marketplace for everything.",
     ctaText: "Explore Now",
     ctaLink: "/shop",
   },
   {
-    image: "/images/slide2.jpg",
+    image: "/images/slide3.png",
     title: "Unbeatable Deals on Electronics",
     text: "Find the latest tech gadgets at the best prices.",
     ctaText: "Shop Electronics",
     ctaLink: "/category/electronics",
   },
   {
-    image: "/images/slide3.jpg",
+    image: "/images/slide2.png",
     title: "Expand Your Business with Azela",
     text: "Join us to grow your business and reach more customers.",
     ctaText: "Join as a Vendor",
@@ -180,7 +180,7 @@ const HeroSection = () => {
 
       {/* Mission/Vision/Values Section */}
       <motion.div
-        className="absolute bottom-1 md:bottom-5 lg:bottom-10 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-80 p-4 rounded-lg shadow-md w-[95%]  box-border lg:w-1/2 text-black text-center"
+        className="absolute bottom-1 md:bottom-5 lg:bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-50 bg-opacity-50 p-4 rounded-lg shadow-md w-[95%]  box-border lg:w-1/2 text-black text-center"
         key={infoSections[currentInfo].title}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
