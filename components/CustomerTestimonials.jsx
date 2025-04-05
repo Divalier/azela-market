@@ -5,11 +5,11 @@ import Image from 'next/image';
 
 // Sample Collaborating Companies
 const companies = [
-  { id: 1, name: 'Amazon', logo: '/images/amazon.png' },
-  { id: 2, name: 'Google', logo: '/images/google.png' },
-  { id: 3, name: 'Tesla', logo: '/images/tesla.png' },
-  { id: 4, name: 'Microsoft', logo: '/images/microsoft.png' },
-  { id: 5, name: 'Shopify', logo: '/images/shopify.png' }
+  { id: 1, name: 'Amazon', logo: '/collaborator/amazon.png' },
+  { id: 2, name: 'Google', logo: '/collaborator/google.png' },
+  { id: 3, name: 'Tesla', logo: '/collaborator/tesla.png' },
+  { id: 4, name: 'Microsoft', logo: '/collaborator/microsoft.png' },
+  { id: 5, name: 'Shopify', logo: '/collaborator/shopify.png' }
 ];
 
 // Sample Testimonials
@@ -17,35 +17,35 @@ const testimonials = [
   {
     id: 1,
     name: 'John Doe',
-    image: '/images/customer1.jpg',
+    image: '/testmony/customer1.jpg',
     review: 'Azela Trading transformed my business with its seamless services!',
     rating: 5
   },
   {
     id: 2,
     name: 'Jane Smith',
-    image: '/images/customer2.jpg',
+    image: '/testmony/customer2.jpg',
     review: 'Their logistics and delivery system is top-notch!',
     rating: 4.5
   },
   {
     id: 3,
     name: 'David Johnson',
-    image: '/images/customer3.jpg',
+    image: '/testmony/customer3.jpg',
     review: 'Fantastic customer support and great selection of products.',
     rating: 5
   },
   {
     id: 4,
     name: 'Emily Brown',
-    image: '/images/customer4.jpg',
+    image: '/testmony/customer4.jpg',
     review: 'I love the quality of products from Azela Trading!',
     rating: 4.8
   },
   {
     id: 5,
     name: 'Michael Lee',
-    image: '/images/customer5.jpg',
+    image: '/testmony/customer5.jpg',
     review: 'Highly recommend! Great prices and fast shipping.',
     rating: 4.9
   }
