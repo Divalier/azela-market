@@ -35,15 +35,36 @@ const Navbar = () => {
 
   // Detect Scroll Direction (Show on Scroll Up, Hide on Scroll Down)
   useEffect(() => {
+    if (typeof window === "undefined") return; // Ensure window is available
+  
     const updateWindowWidth = () => {
       setWindowWidth(window.innerWidth);
     };
-
-    updateWindowWidth(); // Set initial width
+  
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+  
+    // Initial setup
+    updateWindowWidth();
+  
+    // Add event listeners
     window.addEventListener("resize", updateWindowWidth);
+    window.addEventListener("scroll", handleScroll);
+  
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+  
 
-    return () => window.removeEventListener("resize", updateWindowWidth);
-  }, []);
   // Depend on lastScrollY
   // end of nav movement
 
@@ -127,16 +148,12 @@ const Navbar = () => {
               Contact Us
             </button>
             <p
-              className={`text-xs text-gray-400 md:hidden lg:flex ${
-                showNavbar ? " duration-700" : "hidden duration-700"
-              }`}
+              className={`${showNavbar ? 'md:block' : 'md:hidden'} hidden text-xs text-gray-400`}
             >
               Available: Mon-Fri, 9 AM - 6 PM
             </p>
             <div
-              className={`flex space-x-2 mt-1 md:hidden lg:flex ${
-                showNavbar ? " duration-700" : "hidden duration-700"
-              }`}
+              className={` space-x-2 mt-1 lg:flex`}
             >
               <Link href="https://facebook.com">
                 <FaFacebookF className="w-5 h-5" />
@@ -295,7 +312,7 @@ const Navbar = () => {
       </div>
       {/* Section 3: Categories Navigation (Now Fixed & Always Visible) */}
       <div
-        className={`${showNavbar ? ' duration-700 md:block' : 'lg:hidden md:hidden'} hidden w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 `}
+        className={`${showNavbar ? ' duration-700 sm-hidden md-block lg-block' : 'hidden duration-700'} w-full bg-gray-900 p-2 text-center md:-mt-7 lg:-mt-0 text-sm fixed z-10 transition-all duration-300 `}
         style={{ top: showMessage ? "140px" : "100px" }} 
       >
         <Categories />

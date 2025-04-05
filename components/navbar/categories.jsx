@@ -9,7 +9,7 @@ const SectionThree = () => {
   const [dropdown, setDropdown] = useState(null);
   const [showNavbar, setShowNavbar] = useState(true); // Navbar visibility state
   const [lastScrollY, setLastScrollY] = useState(0); // Stores last scroll position
-
+  const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 0);
   // Handle Menu Toggles
   const toggleMenu = () => setIsOpen(!isOpen);
   const togglemove = (menu) => setmove(dropdown === menu ? null : menu);
@@ -17,6 +17,10 @@ const SectionThree = () => {
   // Detect Scroll Direction (Show on Scroll Up, Hide on Scroll Down)
   useEffect(() => {
     if (typeof window === "undefined") return; // Ensure window is available
+  
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
   
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
@@ -27,9 +31,20 @@ const SectionThree = () => {
       setLastScrollY(window.scrollY);
     };
   
+    // Initial setup
+    updateWindowWidth();
+  
+    // Add event listeners
+    window.addEventListener("resize", updateWindowWidth);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [lastScrollY]);
+  
 
 
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -59,7 +74,7 @@ const SectionThree = () => {
   }, []);
 
   return (
-    <div className={`${showNavbar ? ' duration-700' : 'hidden duration-700'}`}>
+    <div className={`${showNavbar ? ' duration-700 md-block' : 'hidden duration-700'}`}>
       <div className="container mx-auto flex justify-between items-center text-white">
 
         {/* 🏬 Shop by Category (Two-Level Dropdown) */}
