@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 const services = [
   {
     id: 1,
-    title: "Maintenance & Construction",
+    title: "Maintenance",
     image: "/market/Maintenance & Construction.jpg",
     subServices: [
       {
@@ -33,7 +33,7 @@ const services = [
   },
   {
     id: 2,
-    title: "Consultation & Partnership",
+    title: "Consultation",
     image: "/market/Consultation & Partnership.jpg",
     subServices: [
       {
@@ -49,7 +49,7 @@ const services = [
         image: "/market/service/Consultation & Partnership/Project Planning & Execution.jpg",
       },
       {
-        name: "Tender & Cooperation",
+        name: "Tender",
         description:
           "Unlock new opportunities. We facilitate government and private tenders, connecting you with valuable cooperation opportunities.",
         image: "/market/service/Consultation & Partnership/Tender & Cooperation.jpg",
@@ -64,7 +64,7 @@ const services = [
   },
   {
     id: 3,
-    title: "Transportation & Logistics",
+    title: "Transportation ",
     image: "/market/Transportation & Logistics.jpg",
     subServices: [
       {
@@ -147,11 +147,11 @@ const ServicesSection = () => {
     <section className="py-4 w-full h-[80vh]">
       <div className="container grid grid-cols-1 md:grid-cols-2   px-2 md:px-6  gap-6">
         {/* Left Side: 2x2 Grid (Service Cards) */}
-        <div className="absolute md:relative  w-[100%] h-full z-10 md:z-0  grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-4 md:6  md:p-0">
+        <div className="absolute md:relative  w-[100%] md-h-full z-10 md:z-0  grid grid-cols-2 md:grid-cols-2 gap-1 md:gap-4 md:6  md:p-0">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className={`relative container h-4 md:h-50 bg-white rounded-lg shadow-md p-1 md:p-4 cursor-pointer transition-all duration-500 ${
+              className={`relative container h-6 md:h-50 bg-white rounded-lg shadow-md p-1 md:p-4 cursor-pointer transition-all duration-500 ${
                 expandedIndex === index
                   ? "scale-105 shadow-xl"
                   : "hover:scale-105"
